@@ -11,7 +11,7 @@
   <url>http://maven.apache.org</url>
 
     <properties>
-        <springframework.version>4.3.2.RELEASE</springframework.version>
+        <springframework.version>4.3.5.RELEASE</springframework.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       </properties>
 
@@ -85,10 +85,5 @@
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-tx</artifactId>
-          <version>4.3.5.RELEASE</version>
-      </dependency>
   </dependencies>
 </project>

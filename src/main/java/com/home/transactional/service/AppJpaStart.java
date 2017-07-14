@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * email to me maybe
  */
 @Slf4j
-public class AppStart {
+public class AppJpaStart {
     public static void main(String[] args) {
         startByXml();
     }
@@ -17,7 +17,7 @@ public class AppStart {
     private static void startByXml() {
 //      when you new applicationContext,the beans will be instantiated.except you put a @Lazy annotation on the bean.
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-        InnerService innerService = applicationContext.getBean(InnerService.class);
+        SingleTransactionService innerService = applicationContext.getBean(SingleTransactionService.class);
         innerService.transaction();
     }
 }

@@ -1,6 +1,7 @@
 package com.home.transactional.service;
 
 import com.home.transactional.dao.UserDao;
+import com.home.transactional.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,13 +14,16 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Slf4j
 @Service
-public class InnerService {
+public class SingleTransactionService {
 
     @Autowired
     private UserDao userDao;
 
     @Transactional
-    public void innerCall() {
+    public void transaction() {
+        final User li = userDao.getByName("liyang");
+        System.out.println(li.getMoney());
+        userDao.updateMoney("0", "liyang");
         userDao.updateFreeze("100.x", "liyang");
     }
 }
