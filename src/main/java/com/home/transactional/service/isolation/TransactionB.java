@@ -1,9 +1,11 @@
-package com.home.transactional.service;
+package com.home.transactional.service.isolation;
 
 import com.home.transactional.dao.UserDao;
+import com.home.transactional.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -11,19 +13,15 @@ import org.springframework.transaction.annotation.Transactional;
  * liyang27@le.com;
  * only in letv.
  */
-@Slf4j
 @Service
-public class OuterService {
+public class TransactionB {
 
     @Autowired
     private UserDao userDao;
 
-    @Autowired
-    private InnerService innerService;
-
-    @Transactional
-    public void outerCall() {
-        userDao.updateMoney("0", "liyang");
-        innerService.innerCall();
+    @Transactional(isolation = Isolation.READ_UNCOMMITTED)
+    public void operation() {
+        final User liyang = userDao.getByName("liyang");
+        System.out.println(liyang.getMoney());
     }
 }

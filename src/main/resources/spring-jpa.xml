@@ -5,9 +5,9 @@
 
     <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
           destroy-method="close">
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/show_case" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/show_case?useSSL=false" />
         <property name="username" value="root" />
-        <property name="password" value="" />
+        <property name="password" value="123456" />
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

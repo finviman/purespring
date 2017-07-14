@@ -1,5 +1,6 @@
-package com.home.transactional.service;
+package com.home.transactional.service.propagation;
 
+import com.home.transactional.service.propagation.OuterService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -17,7 +18,7 @@ public class AppJpaStart {
     private static void startByXml() {
 //      when you new applicationContext,the beans will be instantiated.except you put a @Lazy annotation on the bean.
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-        SingleTransactionService innerService = applicationContext.getBean(SingleTransactionService.class);
-        innerService.transaction();
+        OuterService innerService = applicationContext.getBean(OuterService.class);
+        innerService.outerCall();
     }
 }

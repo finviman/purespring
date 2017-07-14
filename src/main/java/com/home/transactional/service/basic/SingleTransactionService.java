@@ -1,4 +1,4 @@
-package com.home.transactional.service;
+package com.home.transactional.service.basic;
 
 import com.home.transactional.dao.UserDao;
 import com.home.transactional.entity.User;
@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Slf4j
 @Service
-public class SingleTransactionService {
+class SingleTransactionService {
 
     @Autowired
     private UserDao userDao;
