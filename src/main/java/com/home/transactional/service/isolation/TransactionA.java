@@ -4,7 +4,6 @@ import com.home.transactional.dao.UserDao;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -21,12 +20,13 @@ public class TransactionA {
 
     @Transactional
     public void operation() {
+        log.info("before transaction committed");
         userDao.updateMoney("10", "liyang");
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        throw new RuntimeException();
+        log.info("after transaction committed");
     }
 }

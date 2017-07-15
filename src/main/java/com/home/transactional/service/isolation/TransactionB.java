@@ -2,7 +2,6 @@ package com.home.transactional.service.isolation;
 
 import com.home.transactional.dao.UserDao;
 import com.home.transactional.entity.User;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -19,7 +18,7 @@ public class TransactionB {
     @Autowired
     private UserDao userDao;
 
-    @Transactional(isolation = Isolation.READ_UNCOMMITTED)
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
     public void operation() {
         final User liyang = userDao.getByName("liyang");
         System.out.println(liyang.getMoney());
