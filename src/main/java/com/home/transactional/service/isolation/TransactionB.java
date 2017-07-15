@@ -18,7 +18,7 @@ public class TransactionB {
     @Autowired
     private UserDao userDao;
 
-    @Transactional(isolation = Isolation.REPEATABLE_READ)
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public void operation() {
         final User liyang = userDao.getByName("liyang");
         System.out.println(liyang.getMoney());
