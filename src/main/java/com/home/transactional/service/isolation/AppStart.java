@@ -18,7 +18,7 @@ public class AppStart {
         TransactionA txa = applicationContext.getBean(TransactionA.class);
         TransactionB txb = applicationContext.getBean(TransactionB.class);
         new Thread(() -> txa.operation()).start();
-        Thread.sleep(400);
+        Thread.sleep(200);
         new Thread(() -> txb.operation()).start();
     }
 }

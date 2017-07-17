@@ -19,7 +19,7 @@ class SingleTransactionService {
     @Autowired
     private UserDao userDao;
 
-    @Transactional
+    //@Transactional
     public void transaction() {
         final User li = userDao.getByName("liyang");
         System.out.println(li.getMoney());
