@@ -33,7 +33,7 @@ public class TransactionB {
          * 但是，目前的代码，读取的数据却是一样的。所以，我怀疑是mybatis缓存造成，然后用两种方式验证是否缓存捣乱：
          * 1.开启mysql查询日志，确实没有看到第二次的的查询记录。
          * 2.把第二次的查询参数变一下，就可以在mysql日志中看到查询日志。
-         * 看来确实mybatis缓存原因。
+         * 看来确实mybatis缓存原因。麻烦的是现在配置还不生效。不改代码是不行了。
          */
         final User liyang1 = userDao.getByName("liyang");
         System.out.println(liyang1.getMoney());
