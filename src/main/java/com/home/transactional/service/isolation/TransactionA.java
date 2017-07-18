@@ -21,12 +21,12 @@ public class TransactionA {
     @Transactional
     public void operation() {
         log.info("before transaction committed");
-        userDao.updateMoney("10", "liyang");
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        userDao.add("a");
         log.info("after transaction committed");
     }
 }
