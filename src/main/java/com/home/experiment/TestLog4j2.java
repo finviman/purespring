@@ -14,7 +14,7 @@ public class TestLog4j2 {
         log.info("treat null like {}",a);
 
         try {
-            Integer.parseInt("haha");
+            Integer.parseInt("feature");
         } catch (Exception e) {
             log.error("treat exception",e);
         }
