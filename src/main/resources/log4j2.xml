@@ -6,6 +6,9 @@
                 <Pattern>%p %d{ABSOLUTE} %c{1} %m %ex%n</Pattern>
             </PatternLayout>
         </Console>
+        <RandomAccessFile name="category" filename="/Users/liyang/Downloads/category_fill.log">
+            <PatternLayout pattern="%d{DEFAULT} [%t] %-5p (%C{1}:%L) - %m%n" charset="UTF-8"/>
+        </RandomAccessFile>
     </Appenders>
     <Loggers>
         <Root level="INFO">
